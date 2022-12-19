@@ -58,8 +58,8 @@ result['cycle'].iloc[-1]
 
 
 # setting x_during to the x_after value of the previous row
-for i in range(1, len(result)):
-    result.loc[i, 'x_during'] = result.loc[i-1, 'x_after']
+#for i in range(1, len(result)):
+#    result.loc[i, 'x_during'] = result.loc[i-1, 'x_after']
 
 
 # setting x_during = 1 at the beginning of the cycle
@@ -100,15 +100,13 @@ results_joined.head()
 results_joined = results_joined.fillna(method='ffill')
 
 
+# setting x_during to the x_after value of the previous cycle
 for i in range(1, len(results_joined)):
     results_joined.loc[i, 'x_during'] = results_joined.loc[i-1, 'x_after']
 
 
 # selecting only the rows needed for part 1 of the task: cycle 20, 60, 100, etc.
 results_p1 = results_joined.iloc[19::40, :]
-
-
-results_p1.head(6)
 
 
 # calculating the signal strengths
@@ -131,7 +129,6 @@ results_p1['signal_str'].sum()
 
 
 # ## Part 2: Drawing the image
-
 
 # creating an empty string for the resulting image
 crt_image = ''
