@@ -137,7 +137,7 @@ results_p1['signal_str'].sum()
 crt_image = ''
 
 # for loop drawing the image: line breaks after cycles divisible by 40, hasthag if x_during overlapping with sprite, dot otherwise
-for a, b, c in zip(results_joined.cycle.astype(int), results_joined.x_during.astype(int), results_joined.x_after.astype(int)):
+for a, b in zip(results_joined.cycle.astype(int), results_joined.x_during.astype(int)):
     if a % 40 in range(b, b + 3, 1) and a not in range(40,240,40):
         crt_image += '#'
     elif a % 40 in range(b, b + 3, 1) and a in range(40,240,40):
